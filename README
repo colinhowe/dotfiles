@@ -1,0 +1,8 @@
+My dotfiles.
+
+Install::
+    mv ~/.vim ~/vim-old
+    mv ~/.vimrc ~/vimrc-old
+    ln -s ./vim ~/.vim
+    ln -s ./vim/vimrc ~/.vimrc
+
