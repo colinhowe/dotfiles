@@ -1,3 +1,149 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+syntax enable
+
+set nu
+set ruler
+
+set scrolloff=2
+set mouse=a
+set nojoinspaces
+set history=1000
+set wildmenu
+set number
+
+set backup
+set backupdir=~/.vimtmp/backups
+set swapfile
+set directory=~/.vimtmp/swap
+
+set incsearch
+set nohls
+set ignorecase
+set smartcase
+set showmatch
+
+set autoindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+"Special options for gvim
+let s:uname = system("echo -n \"$(uname)\"")
+if has("gui_running")
+	set guioptions-=T
+endif
+
+let mapleader=','
+
+" Make j and down keys move down one row even when lines are wrapped
+nnoremap j gj
+nnoremap <DOWN> gj
+" Make k and up keys move up one row even when lines are wrapped
+nnoremap k gk
+nnoremap <UP> gk
+" Make down key move down one row in insert mode even when lines are wrapped
+inoremap <DOWN> <C-O>gj
+" Make up key move up one row in insert mode even when lines are wrapped
+inoremap <UP> <C-O>gk
+
+inoremap jj <ESC>
+inoremap kk <ESC>
+
+" Make Y yank rest of line, like D and C
+nnoremap Y y$
+
+" Cut, copy and paste using the real clipboard
+vmap <leader>y "+y
+vmap <leader>x "+x
+nmap <leader>p "+gp
+nmap <leader>P "+gP
+
+" Write files with sudo if opened without priviliedges
+cmap w!! w !sudo tee % >/dev/null
+
+" Switch tabs easily
+if s:uname == "Darwin"
+    nnoremap <D-S-left> gT
+    nnoremap <D-S-right> gt
+else
+    nnoremap <A-S-left> gT
+    nnoremap <A-S-right> gt
+endif
+
+" Use alt + {j,k} for moving lines up and down
+if s:uname == "Darwin"
+    nnoremap <D-j> :m+<CR>==
+    nnoremap <D-k> :m-2<CR>==
+    "inoremap <M-j> <Esc>:m+<CR>==gi
+    "inoremap <M-k> <Esc>:m-2<CR>==gi
+    vnoremap <D-j> :m'>+<CR>gv=gv
+    vnoremap <D-k> :m-2<CR>gv=gv
+else
+    nnoremap <A-j> :m+<CR>==
+    nnoremap <A-k> :m-2<CR>==
+    "inoremap <A-j> <Esc>:m+<CR>==gi
+    "inoremap <A-k> <Esc>:m-2<CR>==gi
+    vnoremap <A-j> :m'>+<CR>gv=gv
+    vnoremap <A-k> :m-2<CR>gv=gv
+endif
+
+filetype off
+filetype plugin indent on
+
+set colorcolumn=81
+hi ColorColumn guibg=#3d3d3d
+
+au! BufRead,BufNewFile *.json setfiletype json
+
+
+if has("autocmd")
+    " Tell ruby files to use two spaces for indentation
+    autocmd FileType ruby setlocal softtabstop=2 shiftwidth=2 tabstop=4
+    " Tell json files to use two spaces for indentation
+    autocmd FileType json setlocal softtabstop=2 shiftwidth=2 tabstop=4
+    " Tell javascript files to use two spaces for indentation
+    autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2 tabstop=4
+    " Tell coffeescript files to use two spaces for indentation
+    autocmd FileType coffee setlocal softtabstop=2 shiftwidth=2 tabstop=4
+    " Tell scala files to use two spaces for indentation
+    autocmd FileType scala setlocal softtabstop=2 shiftwidth=2 tabstop=4
+    " Makefiles use tabs only
+    autocmd FileType make setlocal noexpandtab
+    " Some types of files should wrap to 79 characters
+    autocmd FileType tex setlocal textwidth=79
+    autocmd FileType plaintex setlocal textwidth=79
+    autocmd FileType latex setlocal textwidth=79
+    autocmd FileType rst setlocal textwidth=79
+    " Enable spell checking for latex and rst
+    autocmd FileType tex setlocal spell spelllang=en_gb
+    autocmd FileType plaintex setlocal spell spelllang=en_gb
+    autocmd FileType latex setlocal spell spelllang=en_gb
+    autocmd FileType rst setlocal spell spelllang=en_gb
+    " Use pdflatex for compiling latex files
+    autocmd FileType tex setlocal makeprg=pdflatex\ %
+    " Don't do things like indent lines following lines that start with 'for'
+    autocmd FileType tex setlocal nosmartindent
+    autocmd FileType plaintex setlocal nosmartindent
+    autocmd FileType latex setlocal nosmartindent
+    " Enable omnicomplete for Python
+    "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    " Auto compile coffeescript
+    autocmd BufWritePost,FileWritePost *.coffee :silent !coffee -c <afile>
+endif
+
+
+augroup mkd
+    " Enable Markdown support
+    autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:&gt;
+augroup end
+
+" Command-T
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
+
+colorscheme desert
+set gfn=Inconsolata\ 13
