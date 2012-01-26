@@ -20,4 +20,5 @@ My dotfiles::
     rake make
     cd ../../../
 
-    mkdir ~/.vimtmp
+    mkdir -p ~/.vimtmp/swap
+    mkdir -p ~/.vimtmp/backups
