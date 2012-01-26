@@ -5,6 +5,7 @@ My dotfiles::
     mkdir ~/.vimtmp/swap
     mv ~/.vim ~/vim-old
     mv ~/.vimrc ~/vimrc-old
-    ln -st vim/ ~/.vim
-    ln ./vim/vimrc ~/.vimrc
+    cd ~
+    ln -s dotfiles/vim/ .vim
+    ln -s dotfiles/vim/vimrc .vimrc
 
