@@ -14,3 +14,6 @@ My dotfiles::
     git submodule sync
     git submodule update
 
+    cd vim/bundle/command-t
+    rake make
+    cd ../../../
