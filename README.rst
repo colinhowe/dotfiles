@@ -19,3 +19,5 @@ My dotfiles::
     cd vim/bundle/command-t
     rake make
     cd ../../../
+
+    mkdir ~/.vimtmp
