@@ -9,3 +9,8 @@ My dotfiles::
     ln -s dotfiles/vim/ .vim
     ln -s dotfiles/vim/vimrc .vimrc
 
+    # Download all the bundles
+    cd dotfiles
+    git submodule sync
+    git submodule update
+
