@@ -8,6 +8,8 @@ My dotfiles::
     cd ~
     ln -s dotfiles/vim/ .vim
     ln -s dotfiles/vim/vimrc .vimrc
+    mv ~/.bashrc ~/.bashrcold
+    ln -s dotfiles/bashrc .bashrc
 
     # Download all the bundles
     cd dotfiles
