@@ -14,6 +14,7 @@ My dotfiles::
     # Download all the bundles
     cd dotfiles
     git submodule sync
+    git submodule init
     git submodule update
 
     cd vim/bundle/command-t
