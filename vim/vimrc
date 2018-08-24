@@ -155,7 +155,10 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_compact = 1
 
 colorscheme desert
-set gfn=Inconsolata\ 13
+set gfn=Liberation\ Mono\ Regular\ 11
 
 set wildignore=*/db-data/*,*.pyc,*/out/*
 set backspace=2
+
+iunmap jj
+iunmap kk
