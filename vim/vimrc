@@ -158,3 +158,4 @@ colorscheme desert
 set gfn=Inconsolata\ 13
 
 set wildignore=*/db-data/*,*.pyc,*/out/*
+set backspace=2
