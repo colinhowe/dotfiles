@@ -49,11 +49,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\e[0;35m\w\$\e[m '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+export PS1="\[\e[35m\]\w\[\e[m\]\\$ "
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -107,3 +103,6 @@ export WORKON_HOME=$HOME/envs
 source /usr/local/bin/virtualenvwrapper.sh
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
+
+source ~/.bashlocal
+export PATH=~/.local/bin:$PATH
