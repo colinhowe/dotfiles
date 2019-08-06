@@ -1,0 +1,40 @@
+{
+    "editor.fontFamily": "DejaVu Sans Mono for Powerline",
+    "editor.fontLigatures": false,
+    "editor.cursorBlinking": "solid",
+    "workbench.statusBar.feedback.visible": false,
+    "python.linting.flake8Args": [
+        "--max-line-length=100",
+        "--ignore=E,W,F401,F841",
+    ],
+    "editor.rulers": [80,100],
+    "search.location": "panel",
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "workbench.colorCustomizations": {
+        "statusBar.background" : "#1A1A1A",
+        "statusBar.noFolderBackground" : "#212121",
+        "statusBar.debuggingBackground": "#263238",
+        "activityBarBadge.background": "#2a2a8a",
+        "editorRuler.foreground": "#522",
+    },
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 16,
+    "[python]": {
+        "editor.tabSize": 4
+    },
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "html.autoClosingTags": false,
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+      "<C-b>": false,
+    },
+    "gitlens.defaultDateStyle": "absolute",
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.blame.highlight.enabled": false,
+    "files.exclude": {
+      "**/*.pyc": true
+    },
+    "workbench.editor.enablePreview": false
+}
