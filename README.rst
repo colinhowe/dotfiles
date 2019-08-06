@@ -10,6 +10,7 @@ My dotfiles::
     ln -s dotfiles/vim/vimrc .vimrc
     mv ~/.bashrc ~/.bashrcold
     ln -s dotfiles/bashrc .bashrc
+    ln -s dotfiles/.zshrc .zshrc
 
     # Download all the bundles
     cd dotfiles
