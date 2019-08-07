@@ -29,6 +29,8 @@
     "vim.useSystemClipboard": true,
     "vim.handleKeys": {
       "<C-b>": false,
+      "<C-d>": false,
+      "<C-w>": false,
     },
     "gitlens.defaultDateStyle": "absolute",
     "gitlens.blame.heatmap.enabled": false,
@@ -36,5 +38,28 @@
     "files.exclude": {
       "**/*.pyc": true
     },
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["u"],
+        "after": [],
+        "commands": [
+          {
+            "command": "undo",
+            "args": []
+          }
+        ]
+      },
+      {
+        "before": ["<C-r>"],
+        "after": [],
+        "commands": [
+          {
+            "command": "redo",
+            "args": []
+          }
+        ]
+      }
+    ],
+    "python.venvPath": "~/envs"
 }
