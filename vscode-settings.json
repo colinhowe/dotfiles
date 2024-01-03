@@ -3,12 +3,16 @@
     "editor.fontLigatures": false,
     "editor.cursorBlinking": "solid",
     "workbench.statusBar.feedback.visible": false,
+    "editor.inlayHints.enabled": "offUnlessPressed",
     "python.linting.flake8Args": [
         "--max-line-length=100",
         "--ignore=E,W,F401,F841",
     ],
-    "editor.rulers": [80,100],
-    "search.location": "panel",
+    "python.linting.flake8Enabled": true,
+    "editor.rulers": [
+      80,
+      100
+    ],
     "window.title": "${activeEditorLong}${separator}${rootName}",
     "workbench.colorCustomizations": {
         "statusBar.background" : "#1A1A1A",
@@ -21,7 +25,8 @@
     "editor.fontSize": 14,
     "editor.lineHeight": 16,
     "[python]": {
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.formatOnType": true
     },
     "editor.tabSize": 2,
     "editor.detectIndentation": false,
@@ -30,15 +35,17 @@
     "vim.handleKeys": {
       "<C-b>": false,
       "<C-d>": false,
-      "<C-w>": false,
+      "<C-t>": false,
+      "<C-p>": false
     },
     "gitlens.defaultDateStyle": "absolute",
     "gitlens.blame.heatmap.enabled": false,
     "gitlens.blame.highlight.enabled": false,
     "files.exclude": {
-      "**/*.pyc": true
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "snapshot-build": true
     },
-    "workbench.editor.enablePreview": false,
     "vim.normalModeKeyBindingsNonRecursive": [
       {
         "before": ["u"],
@@ -61,5 +68,58 @@
         ]
       }
     ],
-    "python.venvPath": "~/envs"
+    "vim.foldfix": true,
+    "python.venvPath": "~/.virtualenvs",
+    "python.formatting.provider": "black",
+    "explorer.confirmDelete": false,
+    "extensions.ignoreRecommendations": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "python.jediEnabled": false,
+    "python.languageServer": "Pylance",
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter-notebook"
+    },
+    "python.defaultInterpreterPath": "/home/colin/code/prolific/prolific/env/bin/python3",
+    "notebook.cellToolbarLocation": {
+      "default": "right",
+      "jupyter-notebook": "left"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.editor.enablePreview": false,
+    "redhat.telemetry.enabled": false,
+    "[yaml]": {
+      "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true,
+    "githubPullRequests.queries": [
+      {
+        "label": "Waiting For My Review",
+        "query": "is:open review-requested:${user}"
+      },
+      {
+        "label": "Assigned To Me",
+        "query": "is:open assignee:${user}"
+      },
+      {
+        "label": "Created By Me",
+        "query": "is:open author:${user}"
+      }
+    ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "codesnap.showWindowControls": false,
+    "codesnap.shutterAction": "copy",
+    "codesnap.target": "window",
+    "window.zoomLevel": 1,
 }

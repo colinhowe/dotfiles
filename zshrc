@@ -6,13 +6,16 @@ export ZSH="/home/colin/.oh-my-zsh"
 bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator virtualenv time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator time)
 POWERLEVEL9K_VCS_SHORTEN_LENGTH=18
 POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=20
 POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
@@ -84,7 +87,6 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -130,3 +132,60 @@ _pytest()
 complete -o nospace -F _pytest pytest
 complete -o nospace -F _pytest py.test
 
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+bindkey '^r' history-incremental-pattern-search-backward
+
+export DJANGO_READ_DOT_ENV_FILE=true
+
+export AWS_SESSION_TOKEN_TTL=8h
+
+
+export ASHBY_ROOT=/home/colin/code/ashby/ashby
+
+# This assumes that the `dotfiles` repository lives next
+# to the `Ashby` repository
+export ASHBY_RC=$ASHBY_ROOT/../dotfiles/.ashbyrc
+[ -f $ASHBY_RC ] && source $ASHBY_RC
+fpath=($ASHBY_ROOT/../dotfiles/.zsh-completions $fpath)
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/colin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/colin/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/colin/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/colin/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+
+# bun completions
+[ -s "/home/colin/.bun/_bun" ] && source "/home/colin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
