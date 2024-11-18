@@ -122,3 +122,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+export AWS_SESSION_TOKEN_TTL=8h
+
+EXPORT ENV_DIR=/home/colin/virtual-envs

@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -189,3 +196,18 @@ fpath=($ASHBY_ROOT/../dotfiles/.zsh-completions $fpath)
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# See: https://ashby.slab.com/posts/tsc-running-out-of-memory-b1buu1bp
+export NODE_OPTIONS=--max-old-space-size=10000
+
+
+export ASHBY_ROOT=/home/colin/code/ashby/ashby
+
+# This assumes that the `dotfiles` repository lives next
+# to the `Ashby` repository
+export ASHBY_RC=$ASHBY_ROOT/../dotfiles/.ashbyrc
+[ -f $ASHBY_RC ] && source $ASHBY_RC
+fpath=($ASHBY_ROOT/../dotfiles/.zsh-completions $fpath)
+

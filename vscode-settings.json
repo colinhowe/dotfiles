@@ -22,7 +22,7 @@
         "editorRuler.foreground": "#522",
     },
     "editor.minimap.enabled": false,
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.lineHeight": 16,
     "[python]": {
         "editor.tabSize": 4,
@@ -66,7 +66,15 @@
             "args": []
           }
         ]
-      }
+      },
+      {
+        "before": ["C-w", "v"],
+        "after": [":", "v", "s", "<Enter>"],
+      },
+      {
+        "before": ["C-w", "s"],
+        "after": [":", "s", "p", "<Enter>"],
+      },
     ],
     "vim.foldfix": true,
     "python.venvPath": "~/.virtualenvs",
@@ -121,5 +129,12 @@
     "codesnap.showWindowControls": false,
     "codesnap.shutterAction": "copy",
     "codesnap.target": "window",
+    "files.simpleDialog.enable": true,
+    "keyboard.dispatch": "keyCode",
     "window.zoomLevel": 1,
+    "editor.renderWhitespace": "trailing",
+    "[sql]": {
+      "editor.defaultFormatter": "bradymholt.pgformatter"
+    }
 }
+
